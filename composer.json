@@ -1,0 +1,29 @@
+{
+    "name": "macfja/phpqa-extensions",
+    "description": "A tool to add more QA tools to PHPQA",
+    "keywords": ["phpqa", "extensions"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MacFJA"
+        }
+    ],
+    "bin": [
+        "bin/phpqa-extensions.php"
+    ],
+    "autoload": {
+        "psr-4": {
+            "MacFJA\\PHPQAExtensions\\": "src/"
+        }
+    },
+    "require": {
+        "edgedesign/phpqa": "^1.18",
+        "symfony/yaml": "^3.4",
+        "wikimedia/relpath": "^2.1",
+        "symfony/console": "3.*|4.*"
+    },
+    "require-dev": {
+        "povils/phpmnd": "^2.0",
+        "rskuipers/php-assumptions": "^0.7.0"
+    }
+}
