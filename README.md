@@ -2,6 +2,12 @@
 
 Add more tools to [PHPQA](https://github.com/EdgedesignCZ/phpqa)
 
+## List of tools
+
+ - [PHP Magic Number Detector](https://github.com/povils/phpmnd): PHP Magic Number Detector.
+ - [PhpAssumptions](https://github.com/rskuipers/php-assumptions): Tool to detect assumptions.
+ - [PhpCodeAnalyzer](https://github.com/wapmorgan/PhpCodeAnalyzer): PhpCodeAnalyzer finds usage of non-built-in extensions in your php code.
+
 ## Usage
 
 ### Get the list of available tools
@@ -12,12 +18,13 @@ $ php vendor/bin/phpqa-extensions.php --tools
 List of available tools
 =======================
 
- --------------------------- -------- --------------------------- -----------
-  Name                        CLI      Composer                    Installed
- --------------------------- -------- --------------------------- -----------
-  PhpAssumptions              phpa     rskuipers/php-assumptions   No
-  PHP Magic Number Detector   phpmnd   povils/phpmnd               No
- --------------------------- -------- --------------------------- -----------
+ --------------------------- -------- ----------------------------- ----------- 
+  Name                        CLI      Composer                      Installed  
+ --------------------------- -------- ----------------------------- ----------- 
+  PhpAssumptions              phpa     rskuipers/php-assumptions     No        
+  PhpCodeAnalyzer             phpca    wapmorgan/php-code-analyzer   No        
+  PHP Magic Number Detector   phpmnd   povils/phpmnd                 No        
+ --------------------------- -------- ----------------------------- ----------- 
 ```
 
 ### Install a tool on a project

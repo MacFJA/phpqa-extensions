@@ -24,6 +24,12 @@
     },
     "require-dev": {
         "povils/phpmnd": "^2.0",
-        "rskuipers/php-assumptions": "^0.7.0"
+        "rskuipers/php-assumptions": "^0.7.0",
+        "wapmorgan/php-code-analyzer": "dev-master"
+    },
+    "suggest": {
+        "povils/phpmnd": "PHP Magic Number Detector",
+        "rskuipers/php-assumptions": "Tool to detect assumptions",
+        "wapmorgan/php-code-analyzer": "PhpCodeAnalyzer finds usage of non-built-in extensions in your php code."
     }
 }
