@@ -63,6 +63,6 @@ With:
 
 ## How to contribute
 
-If you found a nice tool that you want to added, open a issue on GitHub.
+If you found a nice tool that you want to added, [open a issue on GitHub](https://github.com/MacFJA/phpqa-extensions/issues/new?template=new-tool.md).
 
 You can also create Pull Request of a new tool.
