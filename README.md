@@ -39,6 +39,19 @@ Several tools can be add in one times:
 $ php vendor/bin/phpqa-extensions.php --add phpmnd --add phpa
 ```
 
+### Enable an external tool
+
+```
+$ php vendor/bin/phpqa-extensions.php --enable phpmnd:\MacFJA\PHPQAExtensions\Tools\Analyzer\PhpMagicNumber:app/report/phpmagicnumber.xsl
+```
+
+The syntax of the parameter `--enabled` is: `$CLI_NAME$:$WRAPPER_CLASS$` or `$CLI_NAME$:$WRAPPER_CLASS$:$REPORT_PATH$`.
+With:
+
+ - `$CLI_NAME$`: The name of the CLI command
+ - `$WRAPPER_CLASS$`: The class that will be used by PHPQA to call the tool
+ - `$REPORT_PATH$`: The relative path of the XLST file to do the HTML transformation (optional)
+
 ## Options
 
 | Option name | Default | Tool | Description |
