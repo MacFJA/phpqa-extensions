@@ -1,40 +1,43 @@
 <?php
 namespace MacFJA\PHPQAExtensions\Tools\Analyzer;
 
+use Edge\QA\OutputMode;
+use Edge\QA\Tools\Tool;
 use MacFJA\PHPQAExtensions\ToolDefinition;
 
 /**
- * PHPQA tool mapping for PhpAssumptions
+ * PHPQA tool mapping for PhpCodeAnalyzer
  *
  * @author  MacFJA
  * @license MIT
  */
-class PhpAssumptions extends \Edge\QA\Tools\Tool implements ToolDefinition
+class PhpCodeAnalyzer extends Tool implements ToolDefinition
 {
     public static $SETTINGS = array(
-        'optionSeparator' => ' ',
-        'xml' => ['phpa.xml'],
-        'errorsXPath' => '//file/line',
-        'composer' => 'rskuipers/php-assumptions',
-        'internalClass' => 'PhpAssumptions\Analyser',
+        'optionSeparator' => '=',
+        'outputMode' => OutputMode::HANDLED_BY_TOOL,
+        'xml' => ['php-code-analyzer.xml'],
+        'composer' => 'wapmorgan/php-code-analyzer',
+        'internalClass' => 'wapmorgan\PhpCodeAnalyzer\PhpCodeAnalyzer',
     );
 
     public function __invoke()
     {
-        $args['format'] = 'pretty';
+        $args = [$this->options->getAnalyzedDirs(' ')];
         if ($this->options->isSavedToFiles) {
-            $args['format'] = 'xml';
-            $args['output'] = $this->options->toFile('phpa.xml');
+            $args['output'] = $this->options->rawFile('php-code-analyzer.xml');
         }
 
-        $analyzedDirs = $this->options->getAnalyzedDirs();
-        $analyzedDir = reset($analyzedDirs);
-        if (count($analyzedDirs) > 1) {
-            $this->writeln("<error>PhpAssumptions analyzes only first directory {$analyzedDir}</error>");
+        $sinceVersion = $this->config->value('phpca.since');
+        $extension = $this->config->value('phpca.extension');
+
+        if ($sinceVersion !== null) {
+            $args['since-version'] = $sinceVersion;
         }
 
-        $args['exclude'] = implode(',', $this->options->ignore->phpstan());
-        $args[] = $analyzedDir;
+        if ($extension !== null) {
+            $args['extension'] = $extension;
+        }
 
         return $args;
     }
@@ -46,17 +49,17 @@ class PhpAssumptions extends \Edge\QA\Tools\Tool implements ToolDefinition
      */
     public static function getComposer()
     {
-        return static::getToolSettings()['composer'];
+        return 'wapmorgan/php-code-analyzer';
     }
 
     /**
-     * Get tool name
+     * Get the tool display name
      *
      * @return string
      */
     public static function getToolName()
     {
-        return ltrim(substr(static::class, strrpos(static::class, '\\')), '\\');
+        return 'PhpCodeAnalyzer';
     }
 
     /**
@@ -66,7 +69,7 @@ class PhpAssumptions extends \Edge\QA\Tools\Tool implements ToolDefinition
      */
     public static function getReportName()
     {
-        return __DIR__ . '/../../../app/report/phpassumptions.xsl';
+        return __DIR__.'/../../../app/report/php-code-analyzer.xsl';
     }
 
     /**
@@ -76,7 +79,7 @@ class PhpAssumptions extends \Edge\QA\Tools\Tool implements ToolDefinition
      */
     public static function getCliName()
     {
-        return 'phpa';
+        return 'phpca';
     }
 
     /**
@@ -87,7 +90,7 @@ class PhpAssumptions extends \Edge\QA\Tools\Tool implements ToolDefinition
      */
     public static function getInternalClass()
     {
-        return static::getToolSettings()['internalClass'];
+        return 'wapmorgan\PhpCodeAnalyzer\PhpCodeAnalyzer';
     }
 
     /**

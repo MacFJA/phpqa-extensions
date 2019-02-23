@@ -39,4 +39,10 @@ interface ToolDefinition
      * @return string
      */
     public static function getInternalClass();
+
+    /**
+     * Return the global tool settings.
+     * @return array
+     */
+    public static function getToolSettings();
 }
