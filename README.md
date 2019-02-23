@@ -67,6 +67,8 @@ With:
 | phpmnd.ignore-funcs | _null_ | PHP Magic Number Detector | List (comma separate) of function to ignore |
 | phpmnd.ignore-strings | _null_ | PHP Magic Number Detector | List (comma separate) of strings value to ignore |
 | phpmnd.strings | `false` | PHP Magic Number Detector | Activate the strings literal analysis |
+| phpca.since | _null_ | PhpCodeAnalyzer | Only include extensions not included since version |
+| phpca.extension | _null_ | PhpCodeAnalyzer | Look for usage of a specific extension |
 
 ## How to contribute
 

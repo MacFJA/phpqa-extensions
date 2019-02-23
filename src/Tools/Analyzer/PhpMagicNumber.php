@@ -72,7 +72,7 @@ class PhpMagicNumber extends \Edge\QA\Tools\Tool implements ToolDefinition
      */
     public static function getComposer()
     {
-        return static::$SETTINGS['composer'];
+        return static::getToolSettings()['composer'];
     }
 
     /**
@@ -113,6 +113,16 @@ class PhpMagicNumber extends \Edge\QA\Tools\Tool implements ToolDefinition
      */
     public static function getInternalClass()
     {
-        return static::$SETTINGS['internalClass'];
+        return static::getToolSettings()['internalClass'];
+    }
+
+    /**
+     * Return the global tool settings.
+     *
+     * @return array
+     */
+    public static function getToolSettings()
+    {
+        return self::$SETTINGS;
     }
 }

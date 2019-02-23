@@ -28,6 +28,17 @@ class PhpCodeAnalyzer extends Tool implements ToolDefinition
             $args['output'] = $this->options->rawFile('php-code-analyzer.xml');
         }
 
+        $sinceVersion = $this->config->value('phpca.since');
+        $extension = $this->config->value('phpca.extension');
+
+        if ($sinceVersion !== null) {
+            $args['since-version'] = $sinceVersion;
+        }
+
+        if ($extension !== null) {
+            $args['extension'] = $extension;
+        }
+
         return $args;
     }
 
@@ -80,5 +91,15 @@ class PhpCodeAnalyzer extends Tool implements ToolDefinition
     public static function getInternalClass()
     {
         return 'wapmorgan\PhpCodeAnalyzer\PhpCodeAnalyzer';
+    }
+
+    /**
+     * Return the global tool settings.
+     *
+     * @return array
+     */
+    public static function getToolSettings()
+    {
+        return self::$SETTINGS;
     }
 }
