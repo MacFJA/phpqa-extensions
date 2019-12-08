@@ -21,6 +21,7 @@ class PhpAssumptions extends \Edge\QA\Tools\Tool implements ToolDefinition
 
     public function __invoke()
     {
+        $args = [];
         $args['format'] = 'pretty';
         if ($this->options->isSavedToFiles) {
             $args['format'] = 'xml';

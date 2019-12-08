@@ -25,11 +25,13 @@
     "require-dev": {
         "povils/phpmnd": "^2.0",
         "rskuipers/php-assumptions": "^0.7.0",
-        "wapmorgan/php-code-analyzer": "^1.0.5"
+        "wapmorgan/php-code-analyzer": "^1.0.5",
+        "phan/phan": "^1.2"
     },
     "suggest": {
         "povils/phpmnd": "PHP Magic Number Detector",
         "rskuipers/php-assumptions": "Tool to detect assumptions",
-        "wapmorgan/php-code-analyzer": "PhpCodeAnalyzer finds usage of non-built-in extensions in your php code."
+        "wapmorgan/php-code-analyzer": "PhpCodeAnalyzer finds usage of non-built-in extensions in your php code.",
+        "phan/phan": "Phan is a static analyzer for PHP. Phan prefers to avoid false-positives and attempts to prove incorrectness rather than correctness."
     }
 }

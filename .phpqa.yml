@@ -2,7 +2,9 @@ tool:
     phpa: MacFJA\PHPQAExtensions\Tools\Analyzer\PhpAssumptions
     phpmnd: MacFJA\PHPQAExtensions\Tools\Analyzer\PhpMagicNumber
     phpca: MacFJA\PHPQAExtensions\Tools\Analyzer\PhpCodeAnalyzer
+    phan: MacFJA\PHPQAExtensions\Tools\Analyzer\Phan
 report:
     phpa: app/report/phpassumptions.xsl
     phpmnd: app/report/phpmagicnumber.xsl
     phpca: app/report/php-code-analyzer.xsl
+    phan: app/report/phan.xsl

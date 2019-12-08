@@ -9,13 +9,13 @@ namespace MacFJA\PHPQAExtensions;
  */
 class ToolsFinder
 {
-    /** @var array<string,string> */
+    /** @var array<int,array<string,string>> */
     protected $available = [];
 
     /**
      * Get the list of tool available. (Tools implemented)
      *
-     * @return array<string,string>
+     * @return array<int,array<string,string>>
      */
     public function getAvailableTools()
     {
