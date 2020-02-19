@@ -26,7 +26,7 @@ $availables = $toolsFinder->getAvailableTools();
 if (array_key_exists('tools', $options)) {
     $style->title('List of available tools');
 
-
+    /** @var array<int,array<string,string>> $rows */
     $rows = [];
     foreach ($availables as $item) {
         $rows[] = [
@@ -48,7 +48,7 @@ if (array_key_exists('add', $options)) {
     foreach ($toAdd as $name) {
         $tool = $toolsFinder->findToolFrom($name);
         
-        if ($tool == null) {
+        if (!is_array($tool)) {
             $style->warning(sprintf('"%s" is not an available tool.', $name));
             continue;
         }
